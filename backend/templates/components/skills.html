@@ -1,5 +1,44 @@
-<section>
+<section id="skills">
 
-<h2>Skills Section</h2>
+    <div class="skills-container">
+
+        <h4>MY SKILLS</h4>
+
+        <h2>Technologies I Work With</h2>
+
+        <div class="skills-grid">
+
+            {% for skill in skills %}
+
+            <div class="skill-card">
+
+                {% if skill.icon %}
+                    <img src="{{ skill.icon.url }}" alt="{{ skill.name }}">
+                {% endif %}
+
+                <h3>{{ skill.name }}</h3>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width: {{ skill.percentage }}%;">
+                    </div>
+
+                </div>
+
+                <span>{{ skill.percentage }}%</span>
+
+            </div>
+
+            {% empty %}
+
+            <h3>No Skills Added Yet</h3>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 
 </section>

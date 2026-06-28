@@ -12,35 +12,31 @@
         </p>
 
         <h1>
-            Aman <span>Sharma</span>
+            <h1>{{ profile.name }}</h1>
         </h1>
 
         <h2>
-            Python Backend Developer
+            {{ profile.role }}
         </h2>
 
         <p class="hero-desc">
-
-            I build scalable backend applications using
-            Django, FastAPI, SQL and JavaScript.
+         {{ profile.bio }}
 
         </p>
 
-        <div class="hero-buttons">
+       <div class="hero-buttons">
 
-            <a href="#" class="btn-primary">
+    <a href="{{ profile.resume.url }}"
+       class="btn-primary"
+       download>
+        Download Resume
+    </a>
 
-                Download Resume
+    <a href="#contact" class="btn-secondary">
+        Contact Me
+    </a>
 
-            </a>
-
-            <a href="#contact" class="btn-secondary">
-
-                Contact Me
-
-            </a>
-
-        </div>
+</div>
 
     </div>
 
@@ -48,7 +44,7 @@
 
         <div class="image-box">
 
-            <img src="{% static 'images/profile.png' %}" alt="Aman">
+           <img src="{{ profile.image.url }}" alt="{{ profile.name }}">
 
         </div>
 

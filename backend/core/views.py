@@ -1,5 +1,14 @@
 from django.shortcuts import render
-
+from .models import Profile
+from skills.models import Skill
 
 def home(request):
-    return render(request, "home.html")
+    profile = Profile.objects.first()
+    skills = Skill.objects.all()
+
+    context = {
+        "profile": profile,
+        "skills": skills,
+    }
+
+    return render(request, "home.html", context)
