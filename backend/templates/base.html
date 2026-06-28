@@ -2,17 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Sharma Portfolio</title>
+
+    <title>Aman Sharma | Python Backend Developer</title>
+
+    <meta name="description" content="Portfolio of Aman Sharma - Python Backend Developer">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-    {% block content %}
+    {% include "components/navbar.html" %}
 
-    {% endblock %}
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    {% include "components/footer.html" %}
 
     <script src="{% static 'js/main.js' %}"></script>
 
