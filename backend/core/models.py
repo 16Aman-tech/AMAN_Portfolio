@@ -25,3 +25,16 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Experience(models.Model):
+    company = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    duration = models.CharField(max_length=100)
+    description = models.TextField()
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
+
+    def __str__(self):
+        return f"{self.role} - {self.company}"

@@ -1,5 +1,37 @@
-<section>
+<section id="experience">
 
-<h2>Experience Section</h2>
+    <div class="container">
+
+        <div class="section-title">
+            <h4>MY EXPERIENCE</h4>
+            <h2>Work Experience</h2>
+        </div>
+
+        <div class="timeline">
+
+            {% for experience in experiences %}
+
+            <div class="timeline-item">
+
+                <div class="timeline-header">
+                    <h3>{{ experience.role }}</h3>
+                    <span>{{ experience.duration }}</span>
+                </div>
+
+                <h4>{{ experience.company }}</h4>
+
+                <p>{{ experience.description }}</p>
+
+            </div>
+
+            {% empty %}
+
+            <h3>No Experience Added Yet</h3>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 
 </section>

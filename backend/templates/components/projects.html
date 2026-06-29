@@ -1,5 +1,65 @@
-<section>
+<section id="projects">
 
-<h2>Projects Section</h2>
+    <div class="container">
+
+        <div class="section-title">
+            <h4>MY PROJECTS</h4>
+            <h2>Recent Work</h2>
+        </div>
+
+        <div class="projects-grid">
+
+            {% for project in projects %}
+
+            <div class="project-card">
+
+                {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% endif %}
+
+                <div class="project-content">
+
+                    <h3>{{ project.title }}</h3>
+
+                    <p>{{ project.short_description }}</p>
+
+                    <div class="tech-stack">
+                        {{ project.tech_stack }}
+                    </div>
+
+                    <div class="project-buttons">
+
+                        {% if project.github %}
+                        <a href="{{ project.github }}" target="_blank" class="btn-primary">
+                            GitHub
+                        </a>
+                        {% endif %}
+
+                        {% if project.live_demo %}
+                        <a href="{{ project.live_demo }}" target="_blank" class="btn-secondary">
+                            Live Demo
+                        </a>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>No Projects Added Yet</h3>
+                    <p>Add projects from the Django Admin Panel.</p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 
 </section>

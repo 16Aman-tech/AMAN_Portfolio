@@ -1,5 +1,46 @@
-<section>
+<section id="certificates">
 
-<h2>Certificates Section</h2>
+    <div class="container">
+
+        <div class="section-title">
+            <h4>MY CERTIFICATES</h4>
+            <h2>Certifications</h2>
+        </div>
+
+        <div class="certificates-grid">
+
+            {% for certificate in certificates %}
+
+            <div class="certificate-card">
+
+                <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}">
+
+                <div class="certificate-content">
+
+                    <h3>{{ certificate.title }}</h3>
+
+                    <p>{{ certificate.issuer }}</p>
+
+                    {% if certificate.certificate_link %}
+                    <a href="{{ certificate.certificate_link }}"
+                       target="_blank"
+                       class="btn-secondary">
+                        View Certificate
+                    </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <h3>No Certificates Added Yet</h3>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 
 </section>
