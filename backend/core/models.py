@@ -7,7 +7,9 @@ class Profile(models.Model):
 
     role = models.CharField(max_length=150)
 
-    bio = models.TextField()
+    hero_bio = models.TextField(blank=True)
+
+    about_bio = models.TextField(blank=True)
 
     email = models.EmailField()
 
@@ -23,9 +25,10 @@ class Profile(models.Model):
 
     image = models.ImageField(upload_to="profile/")
 
+    about_image = models.ImageField(upload_to="about/", blank=True, null=True)
+
     def __str__(self):
         return self.name
-    
 class Experience(models.Model):
     company = models.CharField(max_length=100)
     role = models.CharField(max_length=100)

@@ -1,5 +1,42 @@
-<section>
+<section id="coding">
 
-<h2>Coding Profiles</h2>
+    <div class="container">
+
+        <div class="section-title">
+            <h4>CODING PROFILES</h4>
+            <h2>Competitive Programming</h2>
+        </div>
+
+        <div class="coding-grid">
+
+            {% for profile in coding_profiles %}
+
+            <div class="coding-card">
+
+                <img src="{{ profile.icon.url }}" alt="{{ profile.platform }}" class="coding-logo">
+
+                <h3>{{ profile.platform }}</h3>
+
+                <p>{{ profile.username }}</p>
+
+                <span>{{ profile.stats }}</span>
+
+                <a href="{{ profile.profile_url }}"
+                   target="_blank"
+                   class="btn-primary">
+                    Visit Profile
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <h3>No Coding Profiles Added Yet</h3>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 
 </section>

@@ -1,9 +1,8 @@
 {% load static %}
 
 <section id="hero">
-    <div class="hero-bg">
-        
-    </div>
+
+    <div class="hero-bg"></div>
 
     <div class="hero-left">
 
@@ -11,41 +10,36 @@
             👋 Hello, I'm
         </p>
 
-        <h1>
-            <h1>{{ profile.name }}</h1>
-        </h1>
+        <h1>{{ profile.name }}</h1>
 
         <h2>
-            {{ profile.role }}
+            <span id="typing"></span>
         </h2>
 
         <p class="hero-desc">
-         {{ profile.bio }}
-
+            {{ profile.hero_bio }}
         </p>
 
-       <div class="hero-buttons">
+        <div class="hero-buttons">
 
-    <a href="{{ profile.resume.url }}"
-       class="btn-primary"
-       download>
-        Download Resume
-    </a>
+            <a href="{{ profile.resume.url }}"
+               class="btn-primary"
+               download>
+                Download Resume
+            </a>
 
-    <a href="#contact" class="btn-secondary">
-        Contact Me
-    </a>
+            <a href="#contact" class="btn-secondary">
+                Contact Me
+            </a>
 
-</div>
+        </div>
 
     </div>
 
     <div class="hero-right">
 
         <div class="image-box">
-
-           <img src="{{ profile.image.url }}" alt="{{ profile.name }}">
-
+            <img src="{{ profile.image.url }}" alt="{{ profile.name }}">
         </div>
 
     </div>

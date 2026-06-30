@@ -1,5 +1,68 @@
-<section>
+<section id="contact">
 
-<h2>Contact</h2>
+    <div class="container">
+
+        <div class="section-title">
+            <h4>CONTACT ME</h4>
+            <h2>{{ contact.title }}</h2>
+            <p>{{ contact.subtitle }}</p>
+        </div>
+
+        <div class="contact-wrapper">
+
+            <!-- LEFT -->
+
+            <div class="contact-card">
+
+                <h3>Email</h3>
+                <p>{{ contact.email }}</p>
+
+                <h3>Phone</h3>
+                <p>{{ contact.phone }}</p>
+
+                <h3>Location</h3>
+                <p>{{ contact.address }}</p>
+
+                <div class="contact-links">
+
+                    <a href="{{ contact.github }}" target="_blank">
+                        GitHub
+                    </a>
+
+                    <a href="{{ contact.linkedin }}" target="_blank">
+                        LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <form class="contact-form" method="POST">
+
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Your Name" required>
+
+                <input type="email" name="email" placeholder="Your Email" required>
+
+                <input type="text" name="subject" placeholder="Subject" required>
+
+                <textarea
+                    name="message"
+                    rows="7"
+                    placeholder="Write your message..."
+                    required></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </section>

@@ -1,0 +1,38 @@
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h4>MY EDUCATION</h4>
+            <h2>Education</h2>
+        </div>
+
+        <div class="education-grid">
+
+            {% for edu in education %}
+
+            <div class="education-card">
+
+                <h3>{{ edu.degree }}</h3>
+
+                <h4>{{ edu.institute }}</h4>
+
+                <span>{{ edu.duration }}</span>
+
+                <p>{{ edu.description }}</p>
+
+                <strong>{{ edu.percentage }}</strong>
+
+            </div>
+
+            {% empty %}
+
+            <h3>No Education Added</h3>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
