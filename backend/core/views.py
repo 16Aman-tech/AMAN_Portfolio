@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Experience
+
 from skills.models import Skill
 from projects.models import Project
 from certificates.models import Certificate
@@ -7,6 +8,7 @@ from education.models import Education
 from coding.models import CodingProfile
 from contact.models import Contact
 from contact_messages.models import ContactMessage
+from analytics.models import Visitor
 
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -15,6 +17,9 @@ from django.conf import settings
 
 def home(request):
 
+    # ==========================
+    # CONTACT FORM
+    # ==========================
     if request.method == "POST":
 
         print(request.POST)
@@ -57,6 +62,17 @@ Message:
 
         return redirect("home")
 
+    # ==========================
+    # VISITOR TRACKING
+    # ==========================
+    ip = request.META.get("REMOTE_ADDR")
+
+    if not Visitor.objects.filter(ip_address=ip).exists():
+        Visitor.objects.create(ip_address=ip)
+
+    # ==========================
+    # FETCH DATA
+    # ==========================
     profile = Profile.objects.first()
     skills = Skill.objects.all()
     projects = Project.objects.all()
@@ -65,6 +81,14 @@ Message:
     education = Education.objects.all()
     coding_profiles = CodingProfile.objects.all()
     contact = Contact.objects.first()
+
+    # ==========================
+    # ANALYTICS COUNTS
+    # ==========================
+    visitor_count = Visitor.objects.count()
+    message_count = ContactMessage.objects.count()
+    project_count = Project.objects.count()
+    certificate_count = Certificate.objects.count()
 
     context = {
         "profile": profile,
@@ -75,6 +99,12 @@ Message:
         "education": education,
         "coding_profiles": coding_profiles,
         "contact": contact,
+
+        # Analytics
+        "visitor_count": visitor_count,
+        "message_count": message_count,
+        "project_count": project_count,
+        "certificate_count": certificate_count,
     }
 
     return render(request, "home.html", context)

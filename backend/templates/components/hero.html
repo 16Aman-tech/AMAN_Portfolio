@@ -4,6 +4,8 @@
 
     <div class="hero-bg"></div>
 
+    <!-- LEFT -->
+
     <div class="hero-left">
 
         <p class="hello">
@@ -28,7 +30,8 @@
                 Download Resume
             </a>
 
-            <a href="#contact" class="btn-secondary">
+            <a href="#contact"
+               class="btn-secondary">
                 Contact Me
             </a>
 
@@ -36,10 +39,85 @@
 
     </div>
 
+    <!-- RIGHT -->
+
     <div class="hero-right">
 
         <div class="image-box">
             <img src="{{ profile.image.url }}" alt="{{ profile.name }}">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+        HERO ANALYTICS
+=========================== -->
+
+<section class="hero-counter-section">
+
+    <div class="hero-stats">
+
+        <div class="hero-stat">
+
+            <div class="hero-stat-icon">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+
+            <div class="hero-stat-content">
+
+                <h3>{{ visitor_count }}</h3>
+                <p>Visitors</p>
+
+            </div>
+
+        </div>
+
+        <div class="hero-stat">
+
+            <div class="hero-stat-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div class="hero-stat-content">
+
+                <h3>{{ project_count }}</h3>
+                <p>Projects</p>
+
+            </div>
+
+        </div>
+
+        <div class="hero-stat">
+
+            <div class="hero-stat-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="hero-stat-content">
+
+                <h3>{{ message_count }}</h3>
+                <p>Messages</p>
+
+            </div>
+
+        </div>
+
+        <div class="hero-stat">
+
+            <div class="hero-stat-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <div class="hero-stat-content">
+
+                <h3>{{ certificate_count }}</h3>
+                <p>Certificates</p>
+
+            </div>
+
         </div>
 
     </div>

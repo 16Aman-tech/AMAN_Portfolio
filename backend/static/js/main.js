@@ -144,3 +144,184 @@ gsap.to(".about-image img",{
     ease:"power1.inOut"
 
 });
+
+// ABOUT
+
+gsap.from("#about .about-image",{
+    scrollTrigger:"#about",
+    x:-100,
+    opacity:0,
+    duration:1
+});
+
+gsap.from("#about .about-content",{
+    scrollTrigger:"#about",
+    x:100,
+    opacity:0,
+    duration:1
+});
+
+
+// =====================================
+// Skills Progress Animation
+// =====================================
+
+gsap.utils.toArray(".progress-fill").forEach((bar)=>{
+
+    gsap.to(bar,{
+
+        width:bar.dataset.width+"%",
+
+        duration:1.5,
+
+        ease:"power3.out",
+
+        scrollTrigger:{
+
+            trigger:bar,
+
+            start:"top 85%"
+
+        }
+
+    });
+
+});
+
+
+// =====================================
+// PROJECT ANIMATION
+// =====================================
+
+gsap.from(".project-card",{
+
+    scrollTrigger:{
+
+        trigger:"#projects",
+
+        start:"top 75%"
+
+    },
+
+    y:80,
+
+    opacity:0,
+
+    duration:1,
+
+    stagger:.2,
+
+    ease:"power3.out"
+
+});
+
+
+// EXPERIENCE
+
+gsap.from(".experience-card",{
+
+    scrollTrigger:"#experience",
+
+    y:80,
+
+    opacity:0,
+
+    stagger:.2,
+
+    duration:1,
+
+    ease:"power3.out"
+
+});
+
+
+
+// EDUCATION
+
+gsap.from(".education-card",{
+
+    scrollTrigger:"#education",
+
+    y:80,
+
+    opacity:0,
+
+    stagger:.2,
+
+    duration:1,
+
+    ease:"power3.out"
+
+});
+
+
+// =====================================
+// CERTIFICATES
+// =====================================
+
+gsap.from(".certificate-card",{
+
+    scrollTrigger:"#certificates",
+
+    y:80,
+
+    opacity:0,
+
+    stagger:.2,
+
+    duration:1,
+
+    ease:"power3.out"
+
+});
+
+
+
+// =====================================
+// CODING
+// =====================================
+
+gsap.from(".coding-card",{
+
+    scrollTrigger:"#coding",
+
+    y:80,
+
+    opacity:0,
+
+    stagger:.2,
+
+    duration:1,
+
+    ease:"power3.out"
+
+});
+
+
+// =====================================
+// CONTACT
+// =====================================
+
+gsap.from(".contact-card",{
+
+    scrollTrigger:"#contact",
+
+    x:-80,
+
+    opacity:0,
+
+    duration:1
+
+});
+
+gsap.from(".contact-form",{
+
+    scrollTrigger:"#contact",
+
+    x:80,
+
+    opacity:0,
+
+    duration:1
+
+});

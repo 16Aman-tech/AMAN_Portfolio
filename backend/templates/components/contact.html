@@ -2,35 +2,92 @@
 
     <div class="container">
 
-        <div class="section-title">
-            <h4>CONTACT ME</h4>
+        <div class="section-header">
+
+            <span>CONTACT ME</span>
+
             <h2>{{ contact.title }}</h2>
-            <p>{{ contact.subtitle }}</p>
+
+            <p class="section-subtitle">
+
+                {{ contact.subtitle }}
+
+            </p>
+
         </div>
 
         <div class="contact-wrapper">
 
             <!-- LEFT -->
 
-            <div class="contact-card">
+            <div class="contact-card glass">
 
-                <h3>Email</h3>
-                <p>{{ contact.email }}</p>
+                <div class="contact-item">
 
-                <h3>Phone</h3>
-                <p>{{ contact.phone }}</p>
+                    <div class="contact-icon">
 
-                <h3>Location</h3>
-                <p>{{ contact.address }}</p>
+                        <i class="fa-solid fa-envelope"></i>
 
-                <div class="contact-links">
+                    </div>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>{{ contact.email }}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>Phone</h3>
+
+                        <p>{{ contact.phone }}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>Location</h3>
+
+                        <p>{{ contact.address }}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="social-links">
 
                     <a href="{{ contact.github }}" target="_blank">
-                        GitHub
+
+                        <i class="fa-brands fa-github"></i>
+
                     </a>
 
                     <a href="{{ contact.linkedin }}" target="_blank">
-                        LinkedIn
+
+                        <i class="fa-brands fa-linkedin"></i>
+
                     </a>
 
                 </div>
@@ -39,24 +96,42 @@
 
             <!-- RIGHT -->
 
-            <form class="contact-form" method="POST">
+            <form class="contact-form glass" method="POST">
 
                 {% csrf_token %}
 
-                <input type="text" name="name" placeholder="Your Name" required>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required>
 
-                <input type="email" name="email" placeholder="Your Email" required>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required>
 
-                <input type="text" name="subject" placeholder="Subject" required>
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required>
 
                 <textarea
+                    rows="6"
                     name="message"
-                    rows="7"
                     placeholder="Write your message..."
                     required></textarea>
 
-                <button type="submit">
+                <button
+                    class="btn-primary"
+                    type="submit">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
                     Send Message
+
                 </button>
 
             </form>

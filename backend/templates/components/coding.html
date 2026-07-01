@@ -2,36 +2,63 @@
 
     <div class="container">
 
-        <div class="section-title">
-            <h4>CODING PROFILES</h4>
+        <div class="section-header">
+
+            <span>CODING PROFILES</span>
+
             <h2>Competitive Programming</h2>
+
         </div>
 
         <div class="coding-grid">
 
             {% for profile in coding_profiles %}
 
-            <div class="coding-card">
+            <div class="coding-card glass">
 
-                <img src="{{ profile.icon.url }}" alt="{{ profile.platform }}" class="coding-logo">
+                <div class="coding-top">
 
-                <h3>{{ profile.platform }}</h3>
+                    <img src="{{ profile.icon.url }}"
+                         alt="{{ profile.platform }}"
+                         class="coding-logo">
 
-                <p>{{ profile.username }}</p>
+                    <div class="coding-platform">
 
-                <span>{{ profile.stats }}</span>
+                        <h3>{{ profile.platform }}</h3>
+
+                        <p>{{ profile.username }}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="coding-stats">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    {{ profile.stats }}
+
+                </div>
 
                 <a href="{{ profile.profile_url }}"
                    target="_blank"
                    class="btn-primary">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
                     Visit Profile
+
                 </a>
 
             </div>
 
             {% empty %}
 
-            <h3>No Coding Profiles Added Yet</h3>
+            <div class="coding-card glass">
+
+                <h3>No Coding Profiles Added Yet</h3>
+
+            </div>
 
             {% endfor %}
 

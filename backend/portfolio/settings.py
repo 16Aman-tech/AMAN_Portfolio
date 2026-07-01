@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'analytics',
     'core',
     'contact_messages',
+    
 
     
     'django.contrib.admin',

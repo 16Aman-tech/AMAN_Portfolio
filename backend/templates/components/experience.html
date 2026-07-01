@@ -2,31 +2,57 @@
 
     <div class="container">
 
-        <div class="section-title">
-            <h4>MY EXPERIENCE</h4>
-            <h2>Work Experience</h2>
+        <div class="section-header">
+
+            <span>MY EXPERIENCE</span>
+
+            <h2>Professional Journey</h2>
+
         </div>
 
-        <div class="timeline">
+        <div class="experience-grid">
 
             {% for experience in experiences %}
 
-            <div class="timeline-item">
+            <div class="experience-card glass">
 
-                <div class="timeline-header">
-                    <h3>{{ experience.role }}</h3>
-                    <span>{{ experience.duration }}</span>
+                <div class="experience-top">
+
+                    <div class="company-icon">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </div>
+
+                    <div class="experience-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        {{ experience.duration }}
+
+                    </div>
+
                 </div>
+
+                <h3>{{ experience.role }}</h3>
 
                 <h4>{{ experience.company }}</h4>
 
-                <p>{{ experience.description }}</p>
+                <p>
+
+                    {{ experience.description }}
+
+                </p>
 
             </div>
 
             {% empty %}
 
-            <h3>No Experience Added Yet</h3>
+            <div class="experience-card glass">
+
+                <h3>No Experience Added Yet</h3>
+
+            </div>
 
             {% endfor %}
 

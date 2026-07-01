@@ -1,19 +1,28 @@
 <section id="skills">
 
-    <div class="skills-container">
+    <div class="container">
 
-        <h4>MY SKILLS</h4>
+        <div class="section-header">
 
-        <h2>Technologies I Work With</h2>
+            <span>MY SKILLS</span>
+
+            <h2>Technologies I Work With</h2>
+
+        </div>
 
         <div class="skills-grid">
 
             {% for skill in skills %}
 
-            <div class="skill-card">
+            <div class="skill-card glass">
 
                 {% if skill.icon %}
-                    <img src="{{ skill.icon.url }}" alt="{{ skill.name }}">
+
+                <img
+                    src="{{ skill.icon.url }}"
+                    alt="{{ skill.name }}"
+                    class="skill-icon">
+
                 {% endif %}
 
                 <h3>{{ skill.name }}</h3>
@@ -22,18 +31,27 @@
 
                     <div
                         class="progress-fill"
-                        style="width: {{ skill.percentage }}%;">
+                        data-width="{{ skill.percentage }}"
+                        style="width:0%;">
                     </div>
 
                 </div>
 
-                <span>{{ skill.percentage }}%</span>
+                <div class="skill-footer">
+
+                    <span>{{ skill.percentage }}%</span>
+
+                </div>
 
             </div>
 
             {% empty %}
 
-            <h3>No Skills Added Yet</h3>
+            <div class="skill-card glass">
+
+                <h3>No Skills Added Yet</h3>
+
+            </div>
 
             {% endfor %}
 

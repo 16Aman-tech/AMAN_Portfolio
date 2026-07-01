@@ -2,20 +2,30 @@
 
     <div class="container">
 
-        <div class="section-title">
-            <h4>MY PROJECTS</h4>
-            <h2>Recent Work</h2>
+        <div class="section-header">
+
+            <span>MY PROJECTS</span>
+
+            <h2>Featured Projects</h2>
+
         </div>
 
         <div class="projects-grid">
 
             {% for project in projects %}
 
-            <div class="project-card">
+            <article class="project-card">
 
-                {% if project.image %}
-                <img src="{{ project.image.url }}" alt="{{ project.title }}">
-                {% endif %}
+                <div class="project-image">
+
+                    {% if project.image %}
+
+                    <img src="{{ project.image.url }}"
+                         alt="{{ project.title }}">
+
+                    {% endif %}
+
+                </div>
 
                 <div class="project-content">
 
@@ -24,37 +34,64 @@
                     <p>{{ project.short_description }}</p>
 
                     <div class="tech-stack">
+
                         {{ project.tech_stack }}
+
                     </div>
 
                     <div class="project-buttons">
 
                         {% if project.github %}
-                        <a href="{{ project.github }}" target="_blank" class="btn-primary">
+
+                        <a href="{{ project.github }}"
+                           target="_blank"
+                           class="btn-primary">
+
+                            <i class="fa-brands fa-github"></i>
+
                             GitHub
+
                         </a>
+
                         {% endif %}
 
                         {% if project.live_demo %}
-                        <a href="{{ project.live_demo }}" target="_blank" class="btn-secondary">
+
+                        <a href="{{ project.live_demo }}"
+                           target="_blank"
+                           class="btn-secondary">
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
                             Live Demo
+
                         </a>
+
                         {% endif %}
 
                     </div>
 
                 </div>
 
-            </div>
+            </article>
 
             {% empty %}
 
-            <div class="project-card">
+            <article class="project-card">
+
                 <div class="project-content">
+
                     <h3>No Projects Added Yet</h3>
-                    <p>Add projects from the Django Admin Panel.</p>
+
+                    <p>
+
+                        Add your projects from Django Admin Panel.
+
+                    </p>
+
                 </div>
-            </div>
+
+            </article>
 
             {% endfor %}
 

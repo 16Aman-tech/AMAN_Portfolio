@@ -2,19 +2,36 @@
 
     <div class="about-container">
 
+        <!-- LEFT IMAGE -->
+
         <div class="about-image">
 
-            <img src="{{ profile.about_image.url }}" alt="{{ profile.name }}">
+            <div class="about-image-glow"></div>
+
+            <img src="{{ profile.about_image.url }}"
+                 alt="{{ profile.name }}">
 
         </div>
 
+        <!-- RIGHT CONTENT -->
+
         <div class="about-content">
 
-            <h4>ABOUT ME</h4>
+            <div class="section-header left">
 
-            <h2>{{ profile.role }}</h2>
+                <span>ABOUT ME</span>
 
-            <p>
+                <h2>Who I Am</h2>
+
+            </div>
+
+            <h3 class="about-role">
+
+                {{ profile.role }}
+
+            </h3>
+
+            <p class="about-description">
 
                 {{ profile.about_bio }}
 
@@ -22,24 +39,60 @@
 
             <div class="about-info">
 
-                <div>
-                    <strong>Name</strong>
-                    <span>{{ profile.name }}</span>
+                <div class="info-card">
+
+                    <span class="info-title">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Name
+
+                    </span>
+
+                    <p>{{ profile.name }}</p>
+
                 </div>
 
-                <div>
-                    <strong>Email</strong>
-                    <span>{{ profile.email }}</span>
+                <div class="info-card">
+
+                    <span class="info-title">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        Email
+
+                    </span>
+
+                    <p>{{ profile.email }}</p>
+
                 </div>
 
-                <div>
-                    <strong>Location</strong>
-                    <span>{{ profile.location }}</span>
+                <div class="info-card">
+
+                    <span class="info-title">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Location
+
+                    </span>
+
+                    <p>{{ profile.location }}</p>
+
                 </div>
 
-                <div>
-                    <strong>Phone</strong>
-                    <span>{{ profile.phone }}</span>
+                <div class="info-card">
+
+                    <span class="info-title">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        Phone
+
+                    </span>
+
+                    <p>{{ profile.phone }}</p>
+
                 </div>
 
             </div>

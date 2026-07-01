@@ -2,32 +2,61 @@
 
     <div class="container">
 
-        <div class="section-title">
-            <h4>MY EDUCATION</h4>
-            <h2>Education</h2>
+        <div class="section-header">
+
+            <span>MY EDUCATION</span>
+
+            <h2>Academic Journey</h2>
+
         </div>
 
         <div class="education-grid">
 
             {% for edu in education %}
 
-            <div class="education-card">
+            <div class="education-card glass">
+
+                <div class="education-top">
+
+                    <div class="education-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+                    <div class="education-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        {{ edu.duration }}
+
+                    </div>
+
+                </div>
 
                 <h3>{{ edu.degree }}</h3>
 
                 <h4>{{ edu.institute }}</h4>
 
-                <span>{{ edu.duration }}</span>
-
                 <p>{{ edu.description }}</p>
 
-                <strong>{{ edu.percentage }}</strong>
+                <div class="education-score">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    {{ edu.percentage }}
+
+                </div>
 
             </div>
 
             {% empty %}
 
-            <h3>No Education Added</h3>
+            <div class="education-card glass">
+
+                <h3>No Education Added Yet</h3>
+
+            </div>
 
             {% endfor %}
 
