@@ -8,7 +8,7 @@ from education.models import Education
 from coding.models import CodingProfile
 from contact.models import Contact
 from contact_messages.models import ContactMessage
-from analytics.models import Visitor
+from analytics.models import Visitor, ResumeDownload
 
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -22,9 +22,6 @@ def home(request):
     # ==========================
     if request.method == "POST":
 
-        print(request.POST)
-
-        # Save message in database
         ContactMessage.objects.create(
             name=request.POST.get("name"),
             email=request.POST.get("email"),
@@ -32,7 +29,6 @@ def home(request):
             message=request.POST.get("message"),
         )
 
-        # Send email notification
         send_mail(
             subject=f"📩 New Portfolio Contact: {request.POST.get('subject')}",
             message=f"""
@@ -58,13 +54,12 @@ Message:
             "Your message has been sent successfully!"
         )
 
-        print("MESSAGE SAVED")
-
         return redirect("home")
 
     # ==========================
     # VISITOR TRACKING
     # ==========================
+
     ip = request.META.get("REMOTE_ADDR")
 
     if not Visitor.objects.filter(ip_address=ip).exists():
@@ -73,6 +68,7 @@ Message:
     # ==========================
     # FETCH DATA
     # ==========================
+
     profile = Profile.objects.first()
     skills = Skill.objects.all()
     projects = Project.objects.all()
@@ -85,12 +81,15 @@ Message:
     # ==========================
     # ANALYTICS COUNTS
     # ==========================
+
     visitor_count = Visitor.objects.count()
     message_count = ContactMessage.objects.count()
     project_count = Project.objects.count()
     certificate_count = Certificate.objects.count()
+    download_count = ResumeDownload.objects.count()
 
     context = {
+
         "profile": profile,
         "skills": skills,
         "projects": projects,
@@ -105,6 +104,8 @@ Message:
         "message_count": message_count,
         "project_count": project_count,
         "certificate_count": certificate_count,
+        "download_count": download_count,
+
     }
 
     return render(request, "home.html", context)

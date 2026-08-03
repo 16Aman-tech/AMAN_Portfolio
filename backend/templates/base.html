@@ -17,10 +17,27 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
+    <div id="loader">
+
+    <div class="loader-content">
+
+        <h1>AS</h1>
+
+        <div class="loader-bar">
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+</div>
 
     {% include "components/navbar.html" %}
 
@@ -61,6 +78,10 @@
 
 </script>
 {% endif %}
-    
+<button id="scrollTopBtn">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>    
 </body>
 </html>

@@ -325,3 +325,107 @@ gsap.from(".contact-form",{
     duration:1
 
 });
+
+
+
+
+// =====================================
+// Loader
+// =====================================
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document.body.classList.add("loaded");
+
+    }, 1500);
+
+});
+
+// =====================================
+// Hero Counter Animation
+// =====================================
+
+gsap.utils.toArray(".counter").forEach(counter => {
+
+    const target = parseInt(counter.textContent);
+
+    counter.textContent = "0";
+
+    gsap.to(counter, {
+
+        innerText: target,
+
+        duration: 2,
+
+        ease: "power2.out",
+
+        snap: {
+            innerText: 1
+        },
+
+        scrollTrigger: {
+
+            trigger: counter,
+
+            start: "top 85%",
+
+            once: true
+
+        }
+
+    });
+
+});
+
+
+// =====================================
+// 3D Card Tilt Effect
+// =====================================
+
+const cards = document.querySelectorAll(
+`
+.skill-card,
+.project-card,
+.experience-card,
+.education-card,
+.certificate-card,
+.coding-card,
+.hero-stat
+`
+);
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -(y-centerY)/18;
+
+        const rotateY = (x-centerX)/18;
+
+        card.style.transform =
+        `perspective(900px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)`;
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform =
+        "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+
+    });
+
+});

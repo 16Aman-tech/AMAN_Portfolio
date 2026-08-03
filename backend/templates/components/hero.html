@@ -5,12 +5,9 @@
     <div class="hero-bg"></div>
 
     <!-- LEFT -->
-
     <div class="hero-left">
 
-        <p class="hello">
-            👋 Hello, I'm
-        </p>
+        <p class="hello">👋 Hello, I'm</p>
 
         <h1>{{ profile.name }}</h1>
 
@@ -24,14 +21,12 @@
 
         <div class="hero-buttons">
 
-            <a href="{{ profile.resume.url }}"
-               class="btn-primary"
-               download>
+            <a href="{% url 'download_resume' %}" class="btn-primary">
+                <i class="fa-solid fa-download"></i>
                 Download Resume
             </a>
 
-            <a href="#contact"
-               class="btn-secondary">
+            <a href="#contact" class="btn-secondary">
                 Contact Me
             </a>
 
@@ -40,7 +35,6 @@
     </div>
 
     <!-- RIGHT -->
-
     <div class="hero-right">
 
         <div class="image-box">
@@ -49,73 +43,67 @@
 
     </div>
 
-</section>
+    <!-- ===========================
+            HERO ANALYTICS
+    =========================== -->
 
+    <div class="hero-counter-section">
 
-<!-- ===========================
-        HERO ANALYTICS
-=========================== -->
+        <div class="hero-stats">
 
-<section class="hero-counter-section">
+            <div class="hero-stat">
+                <div class="hero-stat-icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
 
-    <div class="hero-stats">
-
-        <div class="hero-stat">
-
-            <div class="hero-stat-icon">
-                <i class="fa-solid fa-eye"></i>
+                <div class="hero-stat-content">
+                    <h3 class="counter">{{ visitor_count }}</h3>
+                    <p>Visitors</p>
+                </div>
             </div>
 
-            <div class="hero-stat-content">
+            <div class="hero-stat">
+                <div class="hero-stat-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
 
-                <h3>{{ visitor_count }}</h3>
-                <p>Visitors</p>
-
+                <div class="hero-stat-content">
+                    <h3 class="counter">{{ project_count }}</h3>
+                    <p>Projects</p>
+                </div>
             </div>
 
-        </div>
+            <div class="hero-stat">
+                <div class="hero-stat-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
 
-        <div class="hero-stat">
-
-            <div class="hero-stat-icon">
-                <i class="fa-solid fa-code"></i>
+                <div class="hero-stat-content">
+                    <h3 class="counter">{{ certificate_count }}</h3>
+                    <p>Certificates</p>
+                </div>
             </div>
 
-            <div class="hero-stat-content">
+            <div class="hero-stat">
+                <div class="hero-stat-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
 
-                <h3>{{ project_count }}</h3>
-                <p>Projects</p>
-
+                <div class="hero-stat-content">
+                    <h3 class="counter">{{ message_count }}</h3>
+                    <p>Messages</p>
+                </div>
             </div>
 
-        </div>
+            <div class="hero-stat">
+                <div class="hero-stat-icon">
+                    <i class="fa-solid fa-download"></i>
+                </div>
 
-        <div class="hero-stat">
-
-            <div class="hero-stat-icon">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <div class="hero-stat-content">
-
-                <h3>{{ message_count }}</h3>
-                <p>Messages</p>
-
-            </div>
-
-        </div>
-
-        <div class="hero-stat">
-
-            <div class="hero-stat-icon">
-                <i class="fa-solid fa-trophy"></i>
-            </div>
-
-            <div class="hero-stat-content">
-
-                <h3>{{ certificate_count }}</h3>
-                <p>Certificates</p>
-
+                <div class="hero-stat-content">
+                    <h3 class="counter">{{ download_count }}</h3>
+                    <p>Downloads</p>
+                </div>
             </div>
 
         </div>
