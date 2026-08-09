@@ -7,3 +7,7 @@ db.sqlite3
 media/
 staticfiles/
 node_modules/
+.vercel
+.env*
+
+data.json
