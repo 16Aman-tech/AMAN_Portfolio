@@ -1,16 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "portfolio/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "buildCommand": "python manage.py collectstatic --noinput",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "portfolio/wsgi.py"
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python manage.py collectstatic --noinput"
 }
